@@ -7,12 +7,12 @@ Exception.throwError = function(message) {
 };
 
 Exception.assert = function(condition, message) {
-  if (!condition) throwError("Assertion failed");
+  if (!condition) Exception.throwError("Assertion failed");
 };
 
 MarginOfError = function(error, absolute) {
-  assert(isNumber(error));
-  assert(isBoolean(absolute));
+  Exception.assert(Object.isNumber(error));
+  Exception.assert(Object.isBoolean(absolute));
   this._error = error;
   this._absolute = absolute;
 };
@@ -72,25 +72,25 @@ Object.isNumberFloat = function(n) {
 };
 
 Object.isNumber = function(o) {
-  return $.isNumeric(o);
+  return !isNaN(o) && isFinite(o);
 };
 
 Object.isInt = function(o) {
-  return isNumber(o) && isNumberInt(o);
+  return Object.isNumber(o) && Object.isNumberInt(o);
 };
 
 Object.isFloat = function(o) {
-  return isNumber(o) && isNumberFloat(o);
+  return Object.isNumber(o) && Object.isNumberFloat(o);
 };
 
 Object.isInt32 = function(o) {
-  return isInt(o) && (o >= 0) && (o <= 0xffffffff);
+  return Object.isInt(o) && (o >= 0) && (o <= 0xffffffff);
 };
 
 var Util = Util || {};
 
 Util.notImplemented = function() {
-  throwError("not implemented");
+  Exception.throwError("not implemented");
 };
 
 Util.staticGet = function(o) {
