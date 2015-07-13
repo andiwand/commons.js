@@ -7,5 +7,5 @@ Exception.throwError = function(message) {
 };
 
 Exception.assert = function(condition, message) {
-  if (!condition) throwError("Assertion failed");
+  if (!condition) Exception.throwError("Assertion failed");
 };

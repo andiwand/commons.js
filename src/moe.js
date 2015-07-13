@@ -1,6 +1,6 @@
 MarginOfError = function(error, absolute) {
-  assert(isNumber(error));
-  assert(isBoolean(absolute));
+  Exception.assert(Object.isNumber(error));
+  Exception.assert(Object.isBoolean(absolute));
   this._error = error;
   this._absolute = absolute;
 };

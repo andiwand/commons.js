@@ -1,7 +1,7 @@
 var Util = Util || {};
 
 Util.notImplemented = function() {
-  throwError("not implemented");
+  Exception.throwError("not implemented");
 };
 
 Util.staticGet = function(o) {

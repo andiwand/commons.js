@@ -1,5 +1,5 @@
 {
-  "name": "commons",
+  "name": "commons.js",
   "version": "0.0.1",
   "dependencies": {},
   "devDependencies": {
