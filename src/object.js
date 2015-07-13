@@ -1,4 +1,6 @@
-Object.byPath = function(object, path) {
+var andiwand = andiwand || {};
+
+andiwand.byPath = function(object, path) {
     path = path.replace(/\[(\w+)\]/g, ".$1");
     path = path.replace(/^\./, "");
     var keys = path.split(".");
@@ -10,42 +12,42 @@ Object.byPath = function(object, path) {
     return object;
 };
 
-Object.isObject = function(o) {
+andiwand.isObject = function(o) {
   return typeof o === "object";
 };
 
-Object.isArray = function(o) {
+andiwand.isArray = function(o) {
   return Object.prototype.toString.call(o) === "[object Array]";
 };
 
-Object.isString = function(o) {
+andiwand.isString = function(o) {
   return (typeof o === "string") || (o instanceof String);
 };
 
-Object.isBoolean = function(o) {
+andiwand.isBoolean = function(o) {
   return (typeof o === "boolean") || (o instanceof Boolean);
 };
 
-Object.isNumberInt = function(n) {
+andiwand.isNumberInt = function(n) {
   return (n % 1) === 0;
 };
 
-Object.isNumberFloat = function(n) {
+andiwand.isNumberFloat = function(n) {
   return (n % 1) !== 0;
 };
 
-Object.isNumber = function(o) {
+andiwand.isNumber = function(o) {
   return !isNaN(o) && isFinite(o);
 };
 
-Object.isInt = function(o) {
-  return Object.isNumber(o) && Object.isNumberInt(o);
+andiwand.isInt = function(o) {
+  return andiwand.isNumber(o) && andiwand.isNumberInt(o);
 };
 
-Object.isFloat = function(o) {
-  return Object.isNumber(o) && Object.isNumberFloat(o);
+andiwand.isFloat = function(o) {
+  return andiwand.isNumber(o) && andiwand.isNumberFloat(o);
 };
 
-Object.isInt32 = function(o) {
-  return Object.isInt(o) && (o >= 0) && (o <= 0xffffffff);
+andiwand.isInt32 = function(o) {
+  return andiwand.isInt(o) && (o >= 0) && (o <= 0xffffffff);
 };

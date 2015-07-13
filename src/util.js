@@ -1,13 +1,13 @@
-var Util = Util || {};
+var andiwand = andiwand || {};
 
-Util.notImplemented = function() {
-  Exception.throwError("not implemented");
+andiwand.notImplemented = function() {
+  andiwand.throwError("not implemented");
 };
 
-Util.staticGet = function(o) {
+andiwand.staticGet = function(o) {
   return function() { return o; };
 };
 
-Util.dynamicGet = function(o, prop) {
+andiwand.dynamicGet = function(o, prop) {
   return function() { return o[prop]; };
 };

@@ -1,11 +1,11 @@
-var Exception = Exception || {};
+var andiwand = andiwand || {};
 
-Exception.throwError = function(message) {
+andiwand.throwError = function(message) {
   message = message || "Error";
   if (typeof Error !== "undefined") throw new Error(message);
   throw message;
 };
 
-Exception.assert = function(condition, message) {
-  if (!condition) Exception.throwError("Assertion failed");
+andiwand.assert = function(bool, message) {
+  if (!bool) andiwand.throwError("Assertion failed");
 };
